@@ -1,0 +1,39 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_fragment": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:disc_fragment_5"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_fragment"
+		]
+	],
+	"rewards": {
+		"recipes": [
+			"discs:11_disc",
+            "discs:13_disc",
+            "discs:blocks_disc",
+            "discs:cat_disc",
+            "discs:chirp_disc",
+            "discs:disc_fragment",
+            "discs:far_disc",
+            "discs:mall_disc",
+            "discs:mellohi_disc",
+            "discs:otherside_disc",
+            "discs:pigstep_disc",
+			"discs:stal_disc",
+			"discs:strad_disc",
+			"discs:wait_disc",
+			"discs:ward_disc"
+		]
+	}
+}

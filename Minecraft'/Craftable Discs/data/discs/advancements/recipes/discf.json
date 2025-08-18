@@ -1,0 +1,54 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_iron": 
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": 
+            {
+                "items": 
+                [
+                    {
+                        "item": "minecraft:iron_ingot"
+                    }
+                ]
+            }
+        },
+        "has_coal": 
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": 
+            {
+                "items": 
+                [
+                    {
+                        "item": "minecraft:charcoal"
+                    }
+                ]
+            }
+        },
+        "has_diamond": 
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:diamond"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_iron",
+			"has_coal",
+            "has_diamond"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "discs:disc_fragment"
+        ]
+    }
+}

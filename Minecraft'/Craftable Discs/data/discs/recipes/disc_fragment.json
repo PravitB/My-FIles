@@ -1,0 +1,27 @@
+{
+    "type": "crafting_shaped",
+    "pattern":
+    [
+        "lf",
+        "fm"
+    ],
+    "key": 
+    {
+        "l":
+        {
+            "item": "minecraft:charcoal"
+        },
+        "f":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+        "m":
+        {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "minecraft:disc_fragment_5",
+        "count": 2
+    }
+}

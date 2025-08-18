@@ -1,0 +1,7 @@
+a=int(input('Enter a'))
+b=int(input('Enter b'))
+c=int(input('Enter c'))
+d=int(input('Enter d'))
+e=int(input('Enter e'))
+dist=(a*c+b*d+e)/((c**2+d**2)**0.5)
+print(dist)

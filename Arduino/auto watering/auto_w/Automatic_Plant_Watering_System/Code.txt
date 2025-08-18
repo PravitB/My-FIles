@@ -1,0 +1,22 @@
+int water; //random variable 
+void setup() {
+  pinMode(3,OUTPUT); //output pin for relay board, this will sent signal to the relay
+  pinMode(6,INPUT); //input pin coming from soil sensor
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() { 
+  water = digitalRead(6);
+  printf("%d",water);  // reading the coming signal from the soil sensor
+  if(water == HIGH) // if water level is full then cut the relay 
+  {
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(3,HIGH); // low is to cut the relay
+  }
+  else
+  {
+  digitalWrite(LED_BUILTIN,LOW);
+  digitalWrite(3,LOW); //high to continue proving signal and water supply
+  }
+  delay(400); 
+}

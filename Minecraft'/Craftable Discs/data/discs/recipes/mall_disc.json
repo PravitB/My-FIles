@@ -1,0 +1,24 @@
+{
+    "type": "crafting_shaped",
+    "group": "music_discs",
+    "pattern":
+    [
+        "lfl",
+        "fff",
+        "lfl"
+    ],
+    "key": 
+    {
+        "l":
+        {
+            "item": "minecraft:purple_dye"
+        },
+        "f":
+        {
+            "item": "minecraft:disc_fragment_5"
+        }
+    },
+    "result": {
+        "item": "minecraft:music_disc_mall"
+    }
+}

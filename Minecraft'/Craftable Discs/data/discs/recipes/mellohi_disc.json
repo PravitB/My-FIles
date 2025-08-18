@@ -1,0 +1,28 @@
+{
+    "type": "crafting_shaped",
+    "group": "music_discs",
+    "pattern":
+    [
+        "lfm",
+        "fff",
+        "mfl"
+    ],
+    "key": 
+    {
+        "l":
+        {
+            "item": "minecraft:white_dye"
+        },
+        "f":
+        {
+            "item": "minecraft:disc_fragment_5"
+        },
+        "m":
+        {
+            "item": "minecraft:magenta_dye"
+        }
+    },
+    "result": {
+        "item": "minecraft:music_disc_mellohi"
+    }
+}
