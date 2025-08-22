@@ -7,11 +7,11 @@ typedef struct Node
     struct Node* next;
 }node;
  
-node* createNode(node*);
+node* createNode(node*,int);
 node* createList();
-node* insertFirst(node*);
-node* insertAny(node*);
-node* insertLast(node*);
+node* insertFirst(node*,int);
+node* insertAny(node*,int);
+node* insertLast(node*,int);
 node* deleteFirst(node*);
 node* deleteLast(node*);
 node* deleteAny(node*);
@@ -27,55 +27,50 @@ void main()
     head=createList();
     menu(head);
 }
-node* createNode(node* n)
+node* createNode(node* n,int data)
 {
 	n=(node*)malloc(sizeof(node));
-	n->data=NULL;
+	n->data=data;
 	n->next=NULL;
 }
 node* createList()
 {
     node *start,*n;
+    int data;
     start=NULL;
-    n=createNode(n);
-    printf("enter data for first node: ");
-    scanf("%d",&n->data);
+    printf("Enter data for first node: ");
+    scanf("%d",&data);
+    n=createNode(n,data);
     start=n;
     return start;
 }
-node* insertFirst(node* h)
+node* insertFirst(node* h,int data)
 {
     node *n;
-    n=createNode(n);
-    printf("Enter data: ");
-    scanf("%d",&n->data);
+    n=createNode(n,data);
     n->next=h;
     h=n;
     return h;
 }
-node* insertLast(node* h)
+node* insertLast(node* h,int data)
 {
     node *n,*p;
     p=h;
-    n=createNode(n);
-    printf("Enter data: ");
-    scanf("%d",&n->data);
+    n=createNode(n,data);
     while(p->next!=NULL)
         p=p->next;
     p->next=n;    
     return h;
 }
-node* insertAny(node* h)
+node* insertAny(node* h,int data)
 {
     node *n,*p,*q;
     int pos;
     p=h;
     q=p->next;
-    n=createNode(n);
+    n=createNode(n,data);
     printf("Enter Position: ");
     scanf("%d",&pos);
-    printf("Enter data: ");
-    scanf("%d",&n->data);
     for(int i=0;i<pos-2;i++)
     {
         p=p->next;
@@ -178,7 +173,7 @@ void dispOE(node* h)
 }
 void menu(node* h)
 {
-    int opt,sopt,c,y=1;
+    int opt,sopt,c,x,y=1;
     while(y)
     {
         printf("Enter 1,2,3,4 to insert,delete,display,exit: ");
@@ -186,18 +181,20 @@ void menu(node* h)
         switch (opt)
         {
             case 1:
+                printf("Enter data:");
+                scanf("%d",&x);
                 printf("\nEnter 1,2,3 to insert at First,Last,Position: ");
                 scanf("%d",&sopt);
                 switch (sopt)
                 {
                     case 1:
-                        h = insertFirst(h);
+                        h = insertFirst(h,x);
                         break;
                     case 2:
-                        h = insertLast(h);
+                        h = insertLast(h,x);
                         break;
                     case 3:
-                        h = insertAny(h);
+                        h = insertAny(h,x);
                         break;
                     default:
                         printf("invalid\n");
