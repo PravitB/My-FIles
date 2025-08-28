@@ -10,6 +10,7 @@ typedef struct Node
 node* createNode(node*,int);
 node* insertLast(node*,int);
 node* loopEnd(node*);
+node* cloneList(node*);
 void detectLoop(node*);
 void display(node*);
 
@@ -23,9 +24,12 @@ void main()
     head=insertLast(head, 30); 
     head=insertLast(head, 40);
     head=insertLast(head, 50);
-    node* list=loopEnd(head);
+    display(head);
+    node* list1=cloneList(head);
+    list1=loopEnd(list1);
+    display(head);
     detectLoop(head);
-    detectLoop(list);
+    detectLoop(list1);
     
 }
 node* createNode(node* n,int data)
@@ -45,34 +49,69 @@ node* insertLast(node* h,int data)
     p->next=n;
     return h;
 }
-
+node* cloneList(node* head) {
+    if (!head) return NULL;
+    node *newHead = createNode(NULL, head->data);
+    node *curr = newHead, *orig = head->next;
+    while (orig) {
+        curr->next = createNode(NULL, orig->data);
+        curr = curr->next;
+        orig = orig->next;
+    }
+    return newHead;
+}
 node* loopEnd(node* h)
 {
-    node *p=h,*q=h;
-    int pos;
-    while(p->next!=NULL)
-        p=p->next;
-    printf("Enter node pos to loop to:"); 
-    scanf("%d",&pos);   
-    for (int i=0;i<pos-1;i++)
-        q=q->next;
-    p->next=q;
-    return h;    
+    node *p = h, *q = h;
+    int pos, len = 0;
+    while (p != NULL) 
+    {
+        len++;
+        p = p->next;
+    }
+    printf("Enter node position to loop to (1 to %d): ", len);
+    scanf("%d", &pos);
+    if (pos < 1 || pos > len) 
+    {
+        printf("Invalid position! No loop created.\n");
+        return h;
+    }
+    p = h;
+    while (p->next != NULL)
+        p = p->next;
+    for (int i = 1; i < pos; i++)
+        q = q->next;
+    p->next = q;
+    return h;   
 }
 void detectLoop(node* h)
 {
-    node *p=h,*q=h;
-    int cond=0;
-        while (p->next!=q||p->next!=NULL)
-        {
-            while (q->next!=p)
-                q=q->next;
-            p=p->next;
-        }
-    if (p->next==q)
-        cond=1;            
-    if (cond) printf("There is a loop");
-    else printf("No Loop");   
+    node *p = h, *q = h;
+    while (q && q->next) 
+    {
+        p = p->next;
+        q = q->next->next;
+        if (p == q) 
+            {
+                printf("There is Loop\n");
+                return;
+            }
+    }
+    printf("No Loop\n");  
+    // node *p=h,*q=h;
+    //     while (p->next!=NULL)
+    //     {
+    //         while (q->next!=p||q->next!=NULL)
+    //             q=q->next;
+    //         q=h;
+    //         p=p->next;
+    //     }
+    // if (p->next==q)
+    // {
+    //     printf("There is a loop");
+    //     return;
+    // }            
+    // printf("No Loop");  
 }
 
 void display(node* h)
