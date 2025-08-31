@@ -16,7 +16,7 @@ void display(node*);
 void main()
 {
     node *list, *swapped;
-    list = insertLast(list, 10);
+    list = createNode(list, 10);
     list = insertLast(list, 20);
     list = insertLast(list, 30);
     list = insertLast(list, 40);

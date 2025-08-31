@@ -13,7 +13,7 @@ term* createTerm(term*, int, int);
 term* insertTerm(term*, int, int);
 term* createPoly(term*);
 term* addPoly(term*, term*);
-term* multiplyPoly(term*,term*)
+term* multiplyPoly(term*, term*);
 void display(term*);  
 
 void main()
@@ -36,6 +36,7 @@ void main()
     printf("Product Polynomial:\n");
     display(mult);
 }
+
 term* createTerm(term* t, int coeff, int exp)
 {
     t = (term*)malloc(sizeof(term));
@@ -114,14 +115,21 @@ term* addPoly(term* p1, term* p2)
 
     return sum;
 }
-term* multiplyPoly(node* p1,node* p2)
+term* multiplyPoly(term* p1,term* p2)
 {
     term* mult=NULL;
 
     while (p2!=NULL)
     {
-        
+        term* temp=p1;
+        while (temp!=NULL)
+        {
+            mult=insertTerm(mult,temp->coeff*p2->coeff,temp->exp+p2->exp);
+            temp=temp->next;
+        }
+        p2=p2->next;
     }
+    return mult;
 }
 void display(term* h)
 {

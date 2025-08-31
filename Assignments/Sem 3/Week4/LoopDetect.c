@@ -16,20 +16,22 @@ void display(node*);
 
 void main()
 {
-    node* head;
-    head=NULL;
-    head=createNode(head,5);
-    head=insertLast(head, 10);
-    head=insertLast(head, 20);
-    head=insertLast(head, 30); 
-    head=insertLast(head, 40);
-    head=insertLast(head, 50);
-    display(head);
-    node* list1=cloneList(head);
-    list1=loopEnd(list1);
-    display(head);
-    detectLoop(head);
+    node *list1=NULL, *list2=NULL;
+    list1=createNode(list1,5);
+    list1=insertLast(list1, 10);
+    list1=insertLast(list1, 20);
+    list1=insertLast(list1, 30); 
+    list1=insertLast(list1, 40);
+    list1=insertLast(list1, 50);
+    list2=createNode(list2,0);
+    list2=insertLast(list2, 15);
+    list2=insertLast(list2, 25);
+    list2=insertLast(list2, 35); 
+    list2=insertLast(list2, 45);
+    list2=insertLast(list2, 55);
+    list2=loopEnd(list2);
     detectLoop(list1);
+    detectLoop(list2);
     
 }
 node* createNode(node* n,int data)
@@ -99,18 +101,21 @@ void detectLoop(node* h)
     }
     printf("No Loop\n");  
     // node *p=h,*q=h;
-    //     while (p->next!=NULL)
+    //     while (p->next!=q||p->next!=NULL)
     //     {
     //         while (q->next!=p||q->next!=NULL)
+    //         {
+    //             if (p->next==q)
+    //             {
+    //             printf("Loop Detected\n");
+    //             return;
+    //             }
     //             q=q->next;
-    //         q=h;
+    //         }    
+            
     //         p=p->next;
-    //     }
-    // if (p->next==q)
-    // {
-    //     printf("There is a loop");
-    //     return;
-    // }            
+    //         q=h;
+    //     }          
     // printf("No Loop");  
 }
 
