@@ -4,6 +4,9 @@
 
 void createTree(int[],int);
 void displayTree(int[],int,int);
+void inOrder(int[],int,int);
+void preOrder(int[],int,int);
+void postOrder(int[],int,int);
 
 void main()
 {
@@ -14,6 +17,12 @@ void main()
     int tree[size];
     createTree(tree,size);
     displayTree(tree,height,size);
+    printf("\nInorder Traversal: ");
+    inOrder(tree,0,size);
+    printf("\nPreorder Traversal: ");
+    preOrder(tree,0,size);
+    printf("\nPostorder Traversal: ");
+    postOrder(tree,0,size);
 }
 void createTree(int tree[], int s)
 {
@@ -43,37 +52,54 @@ void createTree(int tree[], int s)
 }
 void displayTree(int tree[], int height, int size)
 {
-    int level = 0;                // Current level in tree
-    int index = 0;                // Index in array
-    int nodesOnLevel;             // Number of nodes at this level
-
-    printf("\nBinary Tree (level order):\n");
-
-    // Loop through each level
-    while (index < size && level < height)
-    {
-        nodesOnLevel = (int)pow(2, level); // Nodes at current level
-        int spaces = (int)pow(2, height - level - 1) - 1; // Leading spaces for centering
-
-        // Print leading spaces
-        for (int s = 0; s < spaces; s++)
-            printf("  ");
-
-        // Print nodes at this level
-        for (int n = 0; n < nodesOnLevel && index < size; n++, index++)
-        {
-            // Print node value or space if node is -1 (no node)
-            if (tree[index] != -1)
-                printf("%2d", tree[index]);
+    // Prints tree in the format:
+    // 1
+    // 2 3
+    // 4 5 6 7
+    for (int level = 0; level < height; level++) {
+        int nodes = (int)pow(2, level);
+        int index_start = (int)pow(2, level) - 1;
+        // Print leading spaces for centering
+        int leading = (int)pow(2, height - level - 1) - 1;
+        for (int s = 0; s < leading; s++) printf(" ");
+        for (int n = 0; n < nodes; n++) {
+            int index = index_start + n;
+            if (index < size && tree[index] != -1)
+                printf("%d", tree[index]);
             else
-                printf(" ? ");
-
-            // Print spaces between nodes
-            for (int s = 0; s < 2 * spaces + 1; s++)
-                printf(" ");
+                printf("E");
+            // Print space between nodes (except after last node)
+            if (n != nodes - 1) {
+                int between = (int)pow(2, height - level) - 1;
+                for (int s = 0; s < between; s++) printf(" ");
+            }
         }
         printf("\n");
-        level++;
     }
+    
 }
 
+void inOrder(int tree[], int index, int size)
+{
+    if (index >= size || tree[index] == -1)
+        return;
+    inOrder(tree, 2 * index + 1, size);
+    printf("%d ", tree[index]);
+    inOrder(tree, 2 * index + 2, size);
+}
+void preOrder(int tree[], int index, int size)
+{
+    if (index >= size || tree[index] == -1)
+        return;
+    printf("%d ", tree[index]);
+    preOrder(tree, 2 * index + 1, size);
+    preOrder(tree, 2 * index + 2, size);
+}
+void postOrder(int tree[], int index, int size)
+{
+    if (index >= size || tree[index] == -1)
+        return;
+    postOrder(tree, 2 * index + 1, size);
+    postOrder(tree, 2 * index + 2, size);
+    printf("%d ", tree[index]);
+}
