@@ -7,6 +7,10 @@ void displayTree(int[],int,int);
 void inOrder(int[],int,int);
 void preOrder(int[],int,int);
 void postOrder(int[],int,int);
+int countNodes(int[],int);
+int countLeaf(int[],int);
+int countInternal(int[],int);
+void search(int[],int,int);
 
 void main()
 {
@@ -23,6 +27,16 @@ void main()
     preOrder(tree,0,size);
     printf("\nPostorder Traversal: ");
     postOrder(tree,0,size);
+    printf("\n");
+    printf("Number of nodes: %d\n",countNodes(tree,size));
+    printf("Height of tree: %d\n",height);
+    printf("Number of leaf nodes: %d\n",countLeaf(tree,size));
+    printf("Number of internal nodes: %d\n",countInternal(tree,size));
+    int s;
+    printf("Enter element to search: ");
+    scanf("%d",&s);
+    search(tree,size,s);
+
 }
 void createTree(int tree[], int s)
 {
@@ -102,4 +116,56 @@ void postOrder(int tree[], int index, int size)
     postOrder(tree, 2 * index + 1, size);
     postOrder(tree, 2 * index + 2, size);
     printf("%d ", tree[index]);
+}
+
+int countNodes(int tree[], int size)
+{
+    int count = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (tree[i] != -1)
+            count++;
+    }
+    return count;
+}
+
+int countLeaf(int tree[], int size)
+{
+    int count = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (tree[i] != -1)
+        {
+            int left = 2 * i + 1, right = 2 * i + 2;
+            if ((left >= size || tree[left] == -1) && (right >= size || tree[right] == -1))
+                count++;
+        }
+    }
+    return count;
+}
+int countInternal(int tree[], int size)
+{
+    int count = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (tree[i] != -1)
+        {
+            int left = 2 * i + 1, right = 2 * i + 2;
+            if ((left < size && tree[left] != -1) || (right < size && tree[right] != -1))
+                count++;
+        }
+    }
+    return count-1;
+}
+void search(int tree[], int size, int s)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (tree[i] == s)
+        {
+            printf("Element %d found in the tree.\n", s);
+            return;
+        }
+    }
+    printf("Element %d not found in the tree.\n", s);
 }

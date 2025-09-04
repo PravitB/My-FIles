@@ -17,6 +17,11 @@ void displayTree(node*);
 void inOrder(node*);
 void preOrder(node*);
 void postOrder(node*);
+int countNodes(node*);
+int countLeaf(node*);
+int countInternal(node*);
+int searchHelper(node*, int);
+void search(node*, int);
 
 void main()
 {
@@ -33,6 +38,15 @@ void main()
     preOrder(root);
     printf("\nPostorder Traversal: ");
     postOrder(root);
+    printf("\n");
+    printf("Number of nodes: %d\n",countNodes(root));
+    printf("Height of tree: %d\n", height(root));
+    printf("Number of leaf nodes: %d\n", countLeaf(root));
+    printf("Number of internal nodes: %d\n", countInternal(root));
+    int s;
+    printf("Enter element to search: ");
+    scanf("%d",&s);
+    search(root,s);
 }
 node* createNode(int data)
 {
@@ -141,4 +155,47 @@ void postOrder(node* n)
         postOrder(n->right);
         printf("%d ", n->data);
     }
+}
+
+int countNodes(node* n)
+{
+    if (n == NULL)
+        return 0;
+    else
+        return 1 + countNodes(n->left) + countNodes(n->right);
+}
+
+int countLeaf(node* n)
+{
+    if (n == NULL)
+        return 0;
+    if (n->left == NULL && n->right == NULL)
+        return 1;
+    else
+        return countLeaf(n->left) + countLeaf(n->right);
+}
+int countInternal(node* n)
+{
+    if (n == NULL || (n->left == NULL && n->right == NULL))
+        return 0;
+    else
+        return 1 + countInternal(n->left) + countInternal(n->right);
+}
+int searchHelper(node* n, int key)
+{
+    if (n == NULL)
+        return 0;
+    
+    if (n->data == key)
+        return 1;
+    
+    return searchHelper(n->left, key) || searchHelper(n->right, key);
+}
+
+void search(node* n, int key)
+{
+    if (searchHelper(n, key))
+        printf("Element %d found in the tree.\n", key);
+    else
+        printf("Element %d not found in the tree.\n", key);
 }
