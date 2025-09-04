@@ -1,0 +1,29 @@
+Enter data for root node: 1
+Enter left child of 1 (-1 for no child): 2
+Enter left child of 2 (-1 for no child): 3
+Enter left child of 3 (-1 for no child): 4
+Enter left child of 4 (-1 for no child): -1
+Enter right child of 4 (-1 for no child): -1
+Enter right child of 3 (-1 for no child): -1
+Enter right child of 2 (-1 for no child): -1
+Enter right child of 1 (-1 for no child): 5
+Enter left child of 5 (-1 for no child): -1
+Enter right child of 5 (-1 for no child): 6
+Enter left child of 6 (-1 for no child): -1
+Enter right child of 6 (-1 for no child): 7
+Enter left child of 7 (-1 for no child): -1
+Enter right child of 7 (-1 for no child): -1
+       1
+      2 5
+    3 E E 6
+4 E E E E E E 7
+
+Inorder Traversal: 4 3 2 1 5 6 7
+Preorder Traversal: 1 2 3 4 5 6 7
+Postorder Traversal: 4 3 2 7 6 5 1
+Number of nodes: 7
+Height of tree: 4
+Number of leaf nodes: 2
+Number of internal nodes: 5
+Enter element to search: 4
+Element 4 found in the tree.
