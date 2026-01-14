@@ -18,4 +18,4 @@ Height of tree: 3
 Number of leaf nodes: 4
 Number of internal nodes: 2
 Enter element to search: 4
-Element 4 found in the tree.
+Element 4 found in the tree. 

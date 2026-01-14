@@ -1,0 +1,5 @@
+id,name,location,total_seats,seat_layout
+1,IMAX Screen 1,North Wing,100,10x10
+2,Dolby Cinema,South Wing,80,8x10
+3,Standard Screen 1,East Wing,120,10x12
+4,VIP Screen,West Wing,50,5x10

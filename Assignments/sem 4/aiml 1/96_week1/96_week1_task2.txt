@@ -1,0 +1,37 @@
+Q3> Plot both datasets and explain the geometric difference.
+Ans> Linearly separable dataset
+
+- Two compact Gaussian-like clouds centered at different points (example centers (0,0) and (4,4)).
+- There exists a straight line (in 2D) — equivalently a linear hyperplane w·x + b = 0 — that partitions the plane so each class lies mostly on one side.
+- Decision boundary is (approximately) a straight line; class membership can be decided by a linear function of features.
+
+Non-linearly separable dataset (concentric circles)
+
+- One class occupies an inner disk (radius ≈ 0–1) and the other occupies an outer annulus (radius ≈ 2–3). Classes are nested.
+- No single straight line can separate classes: the correct boundary is circular (radial). In polar terms, class depends mainly on r = sqrt(x^2 + y^2), not on the angle θ.
+- Decision boundary is radial (nonlinear in x,y), e.g., r = r0 separates classes.
+
+Q4> Discuss which types of machine learning models would perform well on each dataset.
+Ans> For the linearly separable data
+
+Best picks: Logistic Regression, Linear SVM, Linear Discriminant Analysis (LDA), Perceptron.
+Why: they learn a linear decision boundary directly and are sample-efficient when the true boundary is linear.
+Also work well (but are heavier): shallow neural networks, decision trees / random forests.
+Why: these can fit the boundary but are more complex than necessary.
+Practical tips:
+Standardize features (mean 0, unit variance), use L2 regularization to avoid overfitting on noisy data.
+Visualize boundary; linear models are interpretable (weights show feature importance).
+
+For the concentric-circle (nonlinear) data
+
+Direct linear models will fail (zero accuracy if classes are perfectly nested).
+Good options:
+Kernel methods: SVM with RBF (Gaussian) kernel or polynomial kernel.
+Why: kernel trick maps inputs implicitly into a space where classes become linearly separable (RBF can capture radial boundaries).
+Feature transform + linear model: add r = sqrt(x^2+y^2) (or r^2 = x^2+y^2) as a feature and use logistic regression.
+Why: the problem becomes linearly separable in (r) space — very simple and interpretable.
+Small feedforward neural network (one hidden layer, nonlinear activation) or radial-basis function networks.
+Why: can learn circular/nonlinear boundaries when given enough capacity.
+Nonlinear tree-based models: decision trees, random forests, gradient-boosted trees (deeper trees capture nested regions).
+Why: they partition space piecewise; will approximate circular boundaries but may need deeper trees (risk of overfitting).
+Instance methods: k-NN also works well if data is sufficiently dense.

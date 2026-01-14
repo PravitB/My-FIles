@@ -1,0 +1,14 @@
+Q1> Explain why using Python loops for similarity computation would be inefficient.
+Ans> Why Python loops are inefficient
+
+- Interpreter overhead: every iteration executes Python bytecode, does attribute lookups and function calls — expensive when you have millions of dot products.
+- Poor use of optimized math kernels: Python loops won’t use BLAS/LAPACK/SIMD that libraries like NumPy use for bulk linear algebra.
+- Cache / memory patterns: element-wise loops often have worse memory access patterns than contiguous block operations (matrix multiply).
+- GIL and threading: in CPython pure-Python loops can be limited by the GIL; native libraries avoid that by releasing it or running outside Python.
+
+Q4> Justify how vectorization improves performance and readability.
+Ans> Vectorization: how it improves performance and readability
+
+- Moves computation into C/Fortran/GPU kernels (e.g., GEMM) that are multi-threaded and SIMD-accelerated.
+- Replaces many lines of loop logic with a single expressive operation (easier to read and maintain).
+- Enables whole-matrix operations so BLAS can optimize memory layout and parallelism.

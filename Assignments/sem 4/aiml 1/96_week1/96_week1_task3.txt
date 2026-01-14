@@ -1,0 +1,36 @@
+Q1> Identify the possible reasons why results may change between runs
+Ans> Why results may change between runs
+
+Untethered randomness
+Random seeds not set (or not set for every RNG used: Python stdlib random, NumPy, framework RNGs).
+Different default seeds across platforms or library versions.
+Non-deterministic library/ops
+GPU nondeterminism (some cuDNN/cuBLAS kernels are non-deterministic).
+Multi-threaded BLAS/OMP reductions and race conditions.
+Framework-level nondeterministic ops (e.g., certain convolution or scatter ops).
+Environment / dependency drift
+Different versions of Python, NumPy, PyTorch/TensorFlow, BLAS, CUDA, drivers, compilers.
+Different BLAS backend (MKL vs OpenBLAS) giving small numeric differences.
+Hardware differences
+CPU vs GPU, or different GPU models/architectures produce different rounding/ordering.
+Data and preprocessing
+Unversioned or mutated data; preprocessing performed in different order or with nondeterministic I/O.
+Shuffling/sampling differences (not seeded or seeded differently).
+Training instability / sensitivity
+Chaotic training with high sensitivity to tiny numeric changes (unstable hyperparameters, poor conditioning).
+I/O / race conditions / bugs
+Concurrent logging, file-write races, uninitialized memory, or code that uses wall-clock time in training logic.
+Evaluation mismatches
+Different test splits, metrics, batch sizes, or post-processing (e.g., different thresholding).
+Checkpointing differences
+Using different initial checkpoints or checkpoint saving that loses determinism
+
+Q4>  Save outputs and explain how another researcher can verify them
+Ans> How another researcher can verify the results (practical steps) 
+
+Code + exact command(s) to reproduce training and evaluation (one-line runnable).
+Exact configuration file used (yaml/json) containing all hyperparameters and random seeds.
+Dataset snapshot or a deterministic data access procedure + checksums (sha256) for each file.
+Environment specification: requirements.txt or conda env.yml, plus compiler/CUDA versions; or a Dockerfile/container image.
+The exact git commit hash used and any dataset preprocessing scripts.
+Trained model checkpoint(s) used to produce reported numbers.
