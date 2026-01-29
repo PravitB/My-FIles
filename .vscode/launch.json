@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Quick_Sort",
+      "request": "launch",
+      "mainClass": "Quick_Sort",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "Merge_Sort",
+      "request": "launch",
+      "mainClass": "Merge_Sort",
+      "projectName": "Coding_6966eb06"
+    },
+    {
       "name": "Python Debugger: Current File (Integrated Terminal)",
       "type": "debugpy",
       "request": "launch",
