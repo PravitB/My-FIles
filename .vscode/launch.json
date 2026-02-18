@@ -3,6 +3,181 @@
   "configurations": [
     {
       "type": "java",
+      "name": "pat3",
+      "request": "launch",
+      "mainClass": "pat3",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "pat2",
+      "request": "launch",
+      "mainClass": "pat2",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "arm",
+      "request": "launch",
+      "mainClass": "arm",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "pat1",
+      "request": "launch",
+      "mainClass": "pat1",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "Pattern1",
+      "request": "launch",
+      "mainClass": "Pattern1",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "primes",
+      "request": "launch",
+      "mainClass": "primes",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "multiple",
+      "request": "launch",
+      "mainClass": "multiple",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "combos",
+      "request": "launch",
+      "mainClass": "combos",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "euler",
+      "request": "launch",
+      "mainClass": "euler",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "median",
+      "request": "launch",
+      "mainClass": "median",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "bindec",
+      "request": "launch",
+      "mainClass": "bindec",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "prime",
+      "request": "launch",
+      "mainClass": "prime",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "pali",
+      "request": "launch",
+      "mainClass": "pali",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "expo",
+      "request": "launch",
+      "mainClass": "expo",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "digits",
+      "request": "launch",
+      "mainClass": "digits",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "lcm",
+      "request": "launch",
+      "mainClass": "lcm",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "hcf",
+      "request": "launch",
+      "mainClass": "hcf",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "multable",
+      "request": "launch",
+      "mainClass": "multable",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "multen",
+      "request": "launch",
+      "mainClass": "multen",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "natsum",
+      "request": "launch",
+      "mainClass": "natsum",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "roots",
+      "request": "launch",
+      "mainClass": "roots",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "reverse",
+      "request": "launch",
+      "mainClass": "reverse",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "fibo",
+      "request": "launch",
+      "mainClass": "fibo",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "fact",
+      "request": "launch",
+      "mainClass": "fact",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "buzz",
+      "request": "launch",
+      "mainClass": "buzz",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
       "name": "Quick_Sort",
       "request": "launch",
       "mainClass": "Quick_Sort",
