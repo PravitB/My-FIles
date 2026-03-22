@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StaffDatabase",
+      "request": "launch",
+      "mainClass": "StaffDatabase",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "BuildingHouseDemo",
+      "request": "launch",
+      "mainClass": "BuildingHouseDemo",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "VehicleDemo",
+      "request": "launch",
+      "mainClass": "VehicleDemo",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
+      "name": "MethodHidingDemo",
+      "request": "launch",
+      "mainClass": "MethodHidingDemo",
+      "projectName": "Coding_6966eb06"
+    },
+    {
+      "type": "java",
       "name": "pat3",
       "request": "launch",
       "mainClass": "pat3",
